@@ -1,0 +1,49 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://validate.systems88.com/bti/bean"
+targetNamespace="http://validate.systems88.com/bti/bean" elementFormDefault="qualified">
+  
+  <xs:element name="AuthSessionTokenRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="xs:string" name="secret_key"/>
+        <xs:element type="xs:string" name="operator_id"/>
+        <xs:element type="xs:string" name="site_code"/>
+        <xs:element type="xs:string" name="session_token"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="AuthSessionTokenResponse">
+  	<xs:complexType>
+      <xs:sequence>
+      	<xs:element type="xs:string" name="status_code"/>
+        <xs:element type="xs:string" name="currency"/>
+        <xs:element type="xs:string" name="member_id"/>
+        <xs:element type="xs:string" name="member_name"/>
+        <xs:element type="xs:string" name="language"/>
+        <xs:element type="xs:string" name="odds_style"/>
+        <xs:element type="xs:string" name="datetime"/>
+        <xs:element name="Sport">
+    		<xs:complexType>
+     			<xs:sequence>
+        		<xs:element name="Branch" maxOccurs="unbounded" minOccurs="0">
+          			<xs:complexType>
+            			<xs:simpleContent>
+              				<xs:extension base="xs:string">
+                				<xs:attribute type="xs:string" name="ID"/>
+                				<xs:attribute type="xs:string" name="MaxBet"/>
+                				<xs:attribute type="xs:string" name="MaxBetPerMatch"/>
+                				<xs:attribute type="xs:string" name="MinBet"/>
+              				</xs:extension>
+            			</xs:simpleContent>
+          			</xs:complexType>
+        		</xs:element>
+      			</xs:sequence>
+      			<xs:attribute type="xs:string" name="MaxBet"/>
+      			<xs:attribute type="xs:string" name="MinBet"/>
+    		</xs:complexType>
+  		</xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+</xs:schema>
